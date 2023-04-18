@@ -2,7 +2,8 @@
 
 yum -y install nvme-cli lvm2
 
-fdisk /dev/nvme1n1 << EOF
+cat << EOF
+fdisk /dev/nvme1n1 
 n
 p
 1
@@ -11,7 +12,6 @@ p
 t
 8e
 w
-
 EOF 
 
 pvcreate /dev/nvme1n1p1
