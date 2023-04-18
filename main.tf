@@ -8,13 +8,6 @@ resource "aws_key_pair" "kp" {
   key_name   = "CMC_Linux_key"     
   public_key = tls_private_key.pk.public_key_openssh
 
-  # # Create "sshKey.pem" to your computer!!
-  # provisioner "local-exec" { 
-  #   command = << EOF
-  #     echo '${tls_private_key.pk.private_key_pem}' > CMC-linux-Key.pem
-  #     chmod 400 CMC_Linux_key.pem
-  #     EOF
-  # }
 }
 
 resource "local_file" "CMC_local_key" {
@@ -42,16 +35,6 @@ module "ec2_instance" {
   # lines below used for the 'ec2_instance' module which is a couple of years old. 
   source  = "terraform-aws-modules/ec2-instance/aws"
   version = "~> 3.0"
-
-  #module "ec2" # uses newer 4x xprovider code from hashicorp and allows for the ebs_volume_attachment & creation resources. 
-  # source = ""
-// build the requisite number of servers for the partner instances required.
-// instance size can be modified per spec.
-
-  # for_each = toset(["one"])
-  # for more instances you can create additional instances separated by commast
-#  , "two", "three"])
-  # name = "dev-cmc-instance-${each.key}"
 
   name = "linux-cmc-instance"
   availability_zone = local.availability_zone
