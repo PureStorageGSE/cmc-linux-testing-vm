@@ -1,3 +1,5 @@
+# create 100gb volume for cmc linux server
+
 resource "aws_volume_attachment" "this" {
     device_name = "/dev/sdd"
     volume_id = aws_ebs_volume.this.id

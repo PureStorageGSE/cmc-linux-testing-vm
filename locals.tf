@@ -1,3 +1,5 @@
+# definition of local variables.
+
 locals {
 #   user_data = <<EOF
 # EOF

@@ -1,4 +1,4 @@
-# RHEL 8.5
+# Select latest RHEL 8.5 image for CMC linux compliance
 data "aws_ami" "rhel_8_5" {
   most_recent = true
   owners = ["309956199498"] // Red Hat's Account ID

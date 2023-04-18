@@ -1,3 +1,4 @@
+# Ouputs that are displayed to the user when tf apply finishes.
 output "dev-vpc-sg" {
   value = aws_security_group.allow_ssh_anywhere.id
 }

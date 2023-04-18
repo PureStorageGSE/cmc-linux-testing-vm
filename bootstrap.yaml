@@ -1,5 +1,5 @@
-#cloud-config
+#cloud-config in aws ami's to deploy configuration post build
 output : { all : '| tee -a /var/log/cloud-init-output.log' }
 runcmd:
   - ' yum -y install nvme-cli '
-  - 'curl -k https://raw.githubusercontent.com/psg18dhc/tap-dev/main/volumes.sh | sh -'
+  - ' curl -k https://raw.githubusercontent.com/psg18dhc/tap-dev/main/volumes.sh | sh -'
